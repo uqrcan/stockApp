@@ -6,7 +6,7 @@ class CategorySerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Category
-        fields = '_all_'
+        fields = '__all__'
 
     def get_total_products(self, obj):
         return obj.product_set.count()
@@ -14,7 +14,7 @@ class CategorySerializer(serializers.ModelSerializer):
 class BrandSerializer(serializers.ModelSerializer):
     class Meta:
         model = Brand
-        fields = '_all_'
+        fields = '__all__'
         read_only_fields = ('id',)
 
     def create(self, validated_data):
@@ -22,14 +22,13 @@ class BrandSerializer(serializers.ModelSerializer):
 
     def update(self, instance, validated_data):
         instance.name = validated_data.get('name', instance.name)
-        instance.image = validated_data.get('image', instance.image)
         instance.save()
         return instance
 
 class FirmSerializer(serializers.ModelSerializer):
     class Meta:
         model = Firm
-        fields = '_all_'
+        fields = '__all__'
         read_only_fields = ('id',)
 
     def create(self, validated_data):
@@ -50,7 +49,7 @@ class ProductSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Product
-        fields = '_all_'
+        fields = '__all__'
 
     def update_stock(self, instance, validated_data):
         # Satın alma işlemi yapıldığında stock artar
@@ -71,7 +70,7 @@ class ProductSerializer(serializers.ModelSerializer):
 class PurchaseSerializer(serializers.ModelSerializer):
     class Meta:
         model = Purchase
-        fields = '_all_'
+        fields = '__all__'
         read_only_fields = ('id', 'price_total')
 
     def create(self, validated_data):
@@ -86,7 +85,7 @@ class PurchaseSerializer(serializers.ModelSerializer):
 class SaleSerializer(serializers.ModelSerializer):
     class Meta:
         model = Sale
-        fields = '_all_'
+        fields = '__all__'
         read_only_fields = ('id', 'price_total')
 
     def create(self, validated_data):

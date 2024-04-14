@@ -40,6 +40,7 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path(' debug /', include('debug_toolbar.urls')),
     path("user/", include("authenticated.urls")),
+    path("api/", include("stockApp.urls")),
     # Url paths for swagger:
     path("swagger(<format>\.json|\.yaml)",
     schema_view.without_ui(cache_timeout=0), name="schema-json"),

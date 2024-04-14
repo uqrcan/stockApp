@@ -12,7 +12,6 @@ class Category(models.Model):
 
 class Brand(models.Model):
     name = models.CharField(max_length=40)
-    image = models.ImageField(upload_to='brands/')
 
     def _str_(self):
         return self.name

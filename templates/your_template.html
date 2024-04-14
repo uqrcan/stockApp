@@ -1,0 +1,12 @@
+<!-- your_template.html -->
+<ul>
+  {% for category in categories %}
+  <li>{{ category.name }}</li>
+  {% endfor %} {% for brand in brands %}
+  <li>{{ brand.name }}</li>
+  {% endfor %} {% for sale in sales %}
+  <li>{{ sale.brand }} - {{ sale.product }}</li>
+  {% endfor %} {% for purchase in purchases %}
+  <li>{{ purchase.firm }} - {{ purchase.product }}</li>
+  {% endfor %}
+</ul>
