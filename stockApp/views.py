@@ -76,7 +76,7 @@ def purchase_filter(request):
 class CategoryViewSet(viewsets.ModelViewSet):
     queryset = Category.objects.all()
     serializer_class = CategorySerializer
-    permission_classes = [IsAuthenticatedAndWriteOnly]
+    permission_classes = [IsAdminUser]
 
 
 class BrandViewSet(viewsets.ModelViewSet):
